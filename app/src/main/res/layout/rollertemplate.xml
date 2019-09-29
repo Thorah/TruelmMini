@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	android:gravity="center">
+
+	<TextView
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="New Roller"/>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:orientation="horizontal">
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:orientation="vertical"
+			android:gravity="center">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Base"
+				android:id="@+id/basevaluestitle"/>
+
+			<EditText
+				android:inputType="number"
+				android:layout_width="wrap_content"
+				android:ems="1"
+				android:layout_height="wrap_content"
+				android:text="1"
+				android:id="@+id/baseint"/>
+
+			<EditText
+				android:inputType="number"
+				android:layout_width="wrap_content"
+				android:ems="1"
+				android:layout_height="wrap_content"
+				android:id="@+id/baseagi"
+				android:text="1"/>
+
+			<EditText
+				android:inputType="number"
+				android:layout_width="wrap_content"
+				android:ems="1"
+				android:layout_height="wrap_content"
+				android:id="@+id/basestr"
+				android:text="1"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:orientation="vertical"
+			android:gravity="center">
+
+			<TextView
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:text="Boost"
+				android:id="@+id/boostvaluestitle"/>
+
+			<EditText
+				android:inputType="number"
+				android:layout_width="wrap_content"
+				android:ems="1"
+				android:layout_height="wrap_content"
+				android:id="@+id/boostint"
+				android:text="1"/>
+
+			<EditText
+				android:inputType="number"
+				android:layout_width="wrap_content"
+				android:ems="1"
+				android:layout_height="wrap_content"
+				android:id="@+id/boostagi"
+				android:text="1"/>
+
+			<EditText
+				android:inputType="number"
+				android:layout_width="wrap_content"
+				android:ems="1"
+				android:layout_height="wrap_content"
+				android:id="@+id/booststr"
+				android:text="1"/>
+
+		</LinearLayout>
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center">
+
+		<Button
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="Roll"
+			android:id="@+id/rollbutton"/>
+
+		<EditText
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:ems="1"
+			android:text="1"
+			android:id="@+id/dice"/>
+
+	</LinearLayout>
+
+	<Button
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="settings"
+		android:id="@+id/attributes"/>
+
+</LinearLayout>
+

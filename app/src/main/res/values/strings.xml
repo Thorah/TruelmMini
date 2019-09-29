@@ -3,5 +3,8 @@
 
     <string name="app_name">TruelMmini</string>
     <string name="hello_world">Hello world!</string>
-
+	<string name="base">Base</string>
+	<string name="boost">Boost</string>
+	<string name="plus">+</string>
+	<string name="minus">-</string>
 </resources>
