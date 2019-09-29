@@ -176,8 +176,12 @@ public class MainActivity extends Activity
 		
 	
 		if (t.getTag() == "-"){
-			theint -= 1;
+			theint -= 1; 
 		}
+		if (t.getTag() == "+"){
+			theint += 1;
+		}
+	
 		
 		location.setText(Integer.toString(theint));
 	}

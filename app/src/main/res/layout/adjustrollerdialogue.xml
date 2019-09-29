@@ -34,7 +34,6 @@
 					android:layout_height="wrap_content"
 					android:layout_width="wrap_content"
 					android:text="@string/minus"
-					android:tag="-"
 					android:id="@+id/bsiminus"
 					android:onClick="incrfrombutton"/>
 
@@ -52,7 +51,8 @@
 					android:layout_height="wrap_content"
 					android:layout_width="wrap_content"
 					android:text="+"
-					android:id="@+id/bsiplus"/>
+					android:id="@+id/bsiplus"
+					android:onClick="incrfrombutton"/>
 
 			</TableRow>
 
