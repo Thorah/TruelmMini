@@ -45,13 +45,24 @@ public class MainActivity extends Activity
 	}
 
 	public int edittexttoint(EditText inputview){
+		
 		EditText theview = inputview; 
+	
 		int theint = Integer.parseInt(theview.getText().toString());
 		
 		return theint;
 		
 	}; 
-		
+
+	public int textviewtoint(TextView inputview){
+
+		TextView theview = inputview; 
+
+		int theint = Integer.parseInt(theview.getText().toString());
+
+		return theint;
+
+	}; 
 
 	public void addrollerv2(){
 		LayoutInflater myinflater = LayoutInflater.from(this);
@@ -76,6 +87,9 @@ public class MainActivity extends Activity
 			};
 			
 		}); 
+	
+		
+	
 		
 		Button rollbuttonobj = (Button) layout.findViewById(R.id.rollbutton);
 		rollbuttonobj.setOnClickListener(new OnClickListener() {
@@ -83,13 +97,13 @@ public class MainActivity extends Activity
 			public void onClick(View v){
 				TextView output = findViewById(R.id.Output);
 				LinearLayout thishereroller = (LinearLayout) v.getParent().getParent();
-				EditText baseint = thishereroller.findViewById(R.id.baseint);
-				EditText baseagi = thishereroller.findViewById(R.id.baseagi);
-				EditText basestr = thishereroller.findViewById(R.id.basestr);
+				TextView baseint = thishereroller.findViewById(R.id.baseint);
+				TextView baseagi = thishereroller.findViewById(R.id.baseagi);
+				TextView basestr = thishereroller.findViewById(R.id.basestr);
 		
-				EditText boostint = thishereroller.findViewById(R.id.boostint);
-				EditText boostagi = thishereroller.findViewById(R.id.boostagi);
-				EditText booststr = thishereroller.findViewById(R.id.booststr);
+				TextView boostint = thishereroller.findViewById(R.id.boostint);
+				TextView boostagi = thishereroller.findViewById(R.id.boostagi);
+				TextView booststr = thishereroller.findViewById(R.id.booststr);
 		
 				EditText dice = thishereroller.findViewById(R.id.dice);
 				
@@ -100,12 +114,12 @@ public class MainActivity extends Activity
 			
 				//update the entity from the textviews
 				thishereentity.setattirbutes(
-				edittexttoint(baseint),
-				edittexttoint(baseagi),
-				edittexttoint(basestr),
-				edittexttoint(boostint),
-				edittexttoint(boostagi),
-				edittexttoint(booststr),
+				textviewtoint(baseint),
+				textviewtoint(baseagi),
+				textviewtoint(basestr),
+				textviewtoint(boostint),
+				textviewtoint(boostagi),
+				textviewtoint(booststr),
 				edittexttoint(dice)
 				
 				);
@@ -193,12 +207,71 @@ public class MainActivity extends Activity
 	
 		// find the rolle
 		final LinearLayout dthisroller = (LinearLayout) theclicked.getParent();
+	
+		final TextView rollername = (TextView) dthisroller.findViewById(R.id.name);
+		final String rollernamestr = rollername.getText().toString(); 
+		dialog.setTitle(rollernamestr);
 		
+		//set information in dialog
+		EditText newnamebox = dialog.findViewById(R.id.rollername);
+		newnamebox.setText(rollernamestr); 
+	
+		EditText dbaseint = dialog.findViewById(R.id.dbaseint);
+		TextView baseint = dthisroller.findViewById(R.id.baseint);
+		dbaseint.setText(baseint.getText().toString());
+	
+		EditText dbaseagi = dialog.findViewById(R.id.dbaseagi);
+		TextView baseagi = dthisroller.findViewById(R.id.baseagi);
+		dbaseagi.setText(baseagi.getText().toString());
+	
+		EditText dbasestr = dialog.findViewById(R.id.dbasestr);
+		TextView basestr = dthisroller.findViewById(R.id.basestr);
+		dbasestr.setText(basestr.getText().toString());
+		
+		EditText dboostint = dialog.findViewById(R.id.dboostint);
+		TextView boostint = dthisroller.findViewById(R.id.boostint);
+		dboostint.setText(boostint.getText().toString());
+	
+		EditText dboostagi = dialog.findViewById(R.id.dboostagi);
+		TextView boostagi = dthisroller.findViewById(R.id.boostagi);
+		dboostagi.setText(boostagi.getText().toString());
+	
+		EditText dbooststr = dialog.findViewById(R.id.dbooststr);
+		TextView booststr = dthisroller.findViewById(R.id.booststr);
+		dbooststr.setText(booststr.getText().toString());
 		
 		
 		//increment edittext up method
 		Button bsiplus = (Button) dialog.findViewById(R.id.bsiplus);
-		bsiplus.setTag("+"); 
+		bsiplus.setTag("+");
+		Button bsiminus = dialog.findViewById(R.id.bsiminus);
+		bsiminus.setTag("-");
+	
+		Button bsaplus = (Button) dialog.findViewById(R.id.bsaplus);
+		bsaplus.setTag("+");
+		Button bsaminus = (Button) dialog.findViewById(R.id.bsaminus);
+		bsaminus.setTag("-");
+	
+		Button bssplus = (Button) dialog.findViewById(R.id.bssplus);
+		bssplus.setTag("+");
+		Button bssminus = (Button) dialog.findViewById(R.id.bssminus);
+		bssminus.setTag("-");
+	
+		Button boiplus = (Button) dialog.findViewById(R.id.boiplus);
+		boiplus.setTag("+");
+		Button boiminus = (Button) dialog.findViewById(R.id.boiminus);
+		boiminus.setTag("-");
+
+		Button boaplus = (Button) dialog.findViewById(R.id.boaplus);
+		boaplus.setTag("+");
+		Button boaminus = (Button) dialog.findViewById(R.id.boaminus);
+		boaminus.setTag("-");
+		
+		Button bosplus = (Button) dialog.findViewById(R.id.bosplus);
+		bosplus.setTag("+");
+		Button bosminus = (Button) dialog.findViewById(R.id.bosminus);
+		bosminus.setTag("-"); 
+		
 //		bsiplus.setOnClickListener(new OnClickListener() {
 //			@Override
 //			public void onClick(View t) {
@@ -215,8 +288,7 @@ public class MainActivity extends Activity
 //			};
 //		}); 
 		
-		Button bsiminus = dialog.findViewById(R.id.bsiminus);
-		bsiminus.setTag("-");
+		
 		
 		
 //		View woofie = (View) theclicked;
@@ -224,7 +296,7 @@ public class MainActivity extends Activity
 //		TextView namebox = (TextView) parentview.getChildAt(0);
 //
 		//dialog.setTitle(namebox.toString());
-		dialog.setTitle("name");
+		
 		//final anentity thisentity = (anentity) dthisroller.getTag(); 
 		
 
@@ -239,33 +311,62 @@ public class MainActivity extends Activity
 //		final String newname = currentname;
 //		final TextView texttochange = namebox;
 //		final int bsi =
-		
+	
+		final TextView name = (TextView) dthisroller.findViewById(R.id.name);
 
-		//Button dialogButton = (Button) dialog.findViewById(R.id.dbaseint);
-//		// if button is clicked, close the custom dialog
-//		dialogButton.setOnClickListener(new OnClickListener() {
-//				@Override
-//				public void onClick(View v) {
-//					View alpha = (View) v;
-//
-//					ViewGroup parentview = (ViewGroup) alpha.getParent();
-//					TextView gamma = (TextView) parentview.getChildAt(1);
-//					//TextView gamma1 = (TextView) gamma;
-//					String newname = gamma.getText().toString();
-//
-//					//TextView tobechanged = findViewById(1235);
-//					String oldname = texttochange.getText().toString();
-//
-//					TextView theoutput = findViewById(R.id.output);
-//					theoutput.append("\n the dog " + oldname + " was renamed to" + newname);
-//
-//					//tobechanged.setText(newname1);
-//					texttochange.setText(newname);
-//
-//					ddog.setname(newname);
-//					dialog.dismiss();
-//     			}
-//			});
+		Button applynewvalues = (Button) dialog.findViewById(R.id.set);
+
+		applynewvalues.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					
+					//views from roller.
+					TextView baseint = dthisroller.findViewById(R.id.baseint);
+					TextView baseagi = dthisroller.findViewById(R.id.baseagi);
+					TextView basestr = dthisroller.findViewById(R.id.basestr);
+
+					TextView boostint = dthisroller.findViewById(R.id.boostint);
+					TextView boostagi = dthisroller.findViewById(R.id.boostagi);
+					TextView booststr = dthisroller.findViewById(R.id.booststr);
+				
+					//info from dialogue box
+					EditText newnamebox = dialog.findViewById(R.id.rollername); 
+					String newname = newnamebox.getText().toString(); 
+				
+					EditText dbaseint = dialog.findViewById(R.id.dbaseint);
+					EditText dbaseagi = dialog.findViewById(R.id.dbaseagi);
+					EditText dbasestr = dialog.findViewById(R.id.dbasestr);
+
+					EditText dboostint = dialog.findViewById(R.id.dboostint);
+					EditText dboostagi = dialog.findViewById(R.id.dboostagi);
+					EditText dbooststr = dialog.findViewById(R.id.dbooststr);
+					
+					
+					//send message to outpu
+				
+					TextView theoutput = findViewById(R.id.Output);
+					theoutput.append("\n ------------");
+					// Check if name is different.
+					if (rollernamestr != newname){
+						theoutput.append("\n" + rollernamestr + " was renamed to " + newname + ".");
+						}
+
+					// set new values
+					rollername.setText(newname);
+				
+					baseint.setText(dbaseint.getText().toString());
+					baseagi.setText(dbaseagi.getText().toString()); 
+					basestr.setText(dbasestr.getText().toString()); 
+			
+					boostint.setText(dboostint.getText().toString());
+					boostagi.setText(dboostagi.getText().toString());
+					booststr.setText(dbooststr.getText().toString()); 
+				
+					
+					
+					dialog.dismiss();
+     			}
+			});
 
 		dialog.show();
 	};

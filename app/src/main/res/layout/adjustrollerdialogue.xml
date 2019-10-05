@@ -9,12 +9,12 @@
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
 		android:ems="10"
-		android:id="@+id/rollertitle"/>
+		android:id="@+id/rollername"/>
 
 	<LinearLayout
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
-		android:orientation="horizontal">
+		android:orientation="vertical">
 
 		<TableLayout
 			android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
 				<TextView
 					android:layout_height="wrap_content"
 					android:layout_width="wrap_content"
-					android:text="Intelligence"/>
+					android:text="@string/intell"/>
 
 				<Button
 					style="?android:attr/buttonStyleSmall"
@@ -56,6 +56,177 @@
 
 			</TableRow>
 
+			<TableRow
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/agi"/>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/minus"
+					android:id="@+id/bsaminus"
+					android:onClick="incrfrombutton"/>
+
+				<EditText
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="1"
+					android:id="@+id/dbaseagi"/>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="+"
+					android:id="@+id/bsaplus"
+					android:onClick="incrfrombutton"/>
+
+			</TableRow>
+
+			<TableRow
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content">
+
+				<TextView
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/str"/>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/minus"
+					android:id="@+id/bssminus"
+					android:onClick="incrfrombutton"/>
+
+				<EditText
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="1"
+					android:id="@+id/dbasestr"/>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="+"
+					android:id="@+id/bssplus"
+					android:onClick="incrfrombutton"/>
+
+			</TableRow>
+
+		</TableLayout>
+
+		<TableLayout
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content">
+
+			<TableRow
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content">
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/minus"
+					android:id="@+id/boiminus"
+					android:onClick="incrfrombutton"/>
+
+				<EditText
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="1"
+					android:id="@+id/dboostint"/>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="+"
+					android:id="@+id/boiplus"
+					android:onClick="incrfrombutton"/>
+
+			</TableRow>
+
+			<TableRow
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content">
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/minus"
+					android:id="@+id/boaminus"
+					android:onClick="incrfrombutton"/>
+
+				<EditText
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="1"
+					android:id="@+id/dboostagi"/>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="+"
+					android:id="@+id/boaplus"
+					android:onClick="incrfrombutton"/>
+
+			</TableRow>
+
+			<TableRow
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content">
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="@string/minus"
+					android:id="@+id/bosminus"
+					android:onClick="incrfrombutton"/>
+
+				<EditText
+					android:inputType="number"
+					android:layout_width="wrap_content"
+					android:ems="2"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					android:text="1"
+					android:id="@+id/dbooststr"/>
+
+				<Button
+					style="?android:attr/buttonStyleSmall"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					android:text="+"
+					android:id="@+id/bosplus"
+					android:onClick="incrfrombutton"/>
+
+			</TableRow>
+
 		</TableLayout>
 
 	</LinearLayout>
@@ -69,12 +240,14 @@
 		<Button
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
-			android:text="Set"/>
+			android:text="Set"
+			android:id="@+id/set"/>
 
 		<Button
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
-			android:text="Cancel"/>
+			android:text="Cancel"
+			android:id="@+id/cancel"/>
 
 	</LinearLayout>
 

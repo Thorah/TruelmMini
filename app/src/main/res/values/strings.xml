@@ -7,4 +7,7 @@
 	<string name="boost">Boost</string>
 	<string name="plus">+</string>
 	<string name="minus">-</string>
+	<string name="intell">Intelligence</string>
+	<string name="agi">Agility</string>
+	<string name="str">Strength</string>
 </resources>
