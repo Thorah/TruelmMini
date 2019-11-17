@@ -30,6 +30,10 @@ public class MainActivity extends Activity
 		});
 		
     };
+
+	//innerclass insysntioation.
+	information f = new information();
+	information.randinformationmatter t = f.new randinformationmatter();
 	
 	public void toasttest(View v){
 		Toast.makeText(this, "This is a toast test", Toast.LENGTH_SHORT);
@@ -44,6 +48,14 @@ public class MainActivity extends Activity
 		alpha.addView(iv);
 	}
 
+	public void viewvisibilitytoggle(View v){
+		if(v.getVisibility() == View.VISIBLE){
+			v.setVisibility(View.GONE);
+		}else{
+			v.setVisibility(View.VISIBLE);
+		}
+	}
+	
 	public int edittexttoint(EditText inputview){
 		
 		EditText theview = inputview; 
@@ -78,23 +90,40 @@ public class MainActivity extends Activity
 		LinearLayout rollercase = findViewById(R.id.rollercase);
 		rollercase.addView(layout);
 	
-		Button setatrbutton = (Button) layout.findViewById(R.id.attributes); 
-		setatrbutton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View q) {
-				//finish();
-				adjustrollerdlog(q);
-			};
-			
-		}); 
+//		Button setatrbutton = (Button) layout.findViewById(R.id.attributes); 
+//		setatrbutton.setOnClickListener(new OnClickListener() {
+//			@Override
+//			public void onClick(View q) {
+//				//finish();
+//				adjustrollerdlog(q);
+//			};
+//			
+//		}); 
 	
+		final LinearLayout rollervalues = layout.findViewById(R.id.rollervalues);
 		
-	
+		final ScrollView histdisplay = layout.findViewById(R.id.histdisplay);
+		final Button histbutton = layout.findViewById(R.id.histbutton);
+		final TextView histtextbox = layout.findViewById(R.id.histdisplaytext);
+		
+		histbutton.setOnClickListener(new OnClickListener() {
+			public void onClick(View v){
+				Button thisbutton = (Button) v;
+				
+			
+				viewvisibilitytoggle(rollervalues);
+				viewvisibilitytoggle(histdisplay);
+
+				
+				
+			}
+		}); 
 		
 		Button rollbuttonobj = (Button) layout.findViewById(R.id.rollbutton);
 		rollbuttonobj.setOnClickListener(new OnClickListener() {
 			
 			public void onClick(View v){
+				toasttest(v);
 				TextView output = findViewById(R.id.Output);
 				LinearLayout thishereroller = (LinearLayout) v.getParent().getParent();
 				TextView baseint = thishereroller.findViewById(R.id.baseint);
@@ -112,59 +141,33 @@ public class MainActivity extends Activity
 				
 				//find the views
 			
-				//update the entity from the textviews
-				thishereentity.setattirbutes(
-				textviewtoint(baseint),
-				textviewtoint(baseagi),
-				textviewtoint(basestr),
-				textviewtoint(boostint),
-				textviewtoint(boostagi),
-				textviewtoint(booststr),
-				edittexttoint(dice)
+				//update the entity from the textview
+//				thishereentity.setattirbutes(
+//				textviewtoint(baseint),
+//				textviewtoint(baseagi),
+//				textviewtoint(basestr),
+//				textviewtoint(boostint),
+//				textviewtoint(boostagi),
+//				textviewtoint(booststr),
+//				edittexttoint(dice)
+//				
+//				);
+		
+				thishereentity.setdice(edittexttoint(dice));
 				
-				);
-			
 				int[][] thisroll = thishereentity.doroll();
 				
 				
-				output.append("\n Your roll sir;");
+				output.append("\n" +  thishereentity.getname() + " rolls:");
 				
-             	output.append("\n I: ");
-                for (int j = thisroll.length -1; j > 0; j--){
-
-					output.append(Integer.toString(thisroll[j - 1][0]));
-             	 	output.append(""); 
-					if (j>=1){
-						output.append(":");
-					}
-				}
-				output.append(" = ");
-				output.append(Integer.toString(thisroll[thisroll.length-1][0]));
+             	
+				String thisrollasstring = thishereentity.rolltostringdisplay(thisroll); 
 				
-				output.append("\n A: ");
-                for (int j = thisroll.length -1; j > 0; j--){
-
-					output.append(Integer.toString(thisroll[j - 1][1]));
-             	 	output.append(""); 
-					if (j>=1){
-						output.append(":");
-					}
-				}
-				output.append(" = ");
-				output.append(Integer.toString(thisroll[thisroll.length-1][1]));
+				output.append(thisrollasstring);
+			
+				histtextbox.append("\n ------------");
+				histtextbox.append(thisrollasstring);
 				
-				output.append("\n S: ");
-                for (int l = thisroll.length -1; l > 0; l--){
-
-					output.append(Integer.toString(thisroll[l - 1][2]));
-             	 	output.append(""); 
-					if (l>=1){
-						output.append(":");
-					}
-				}
-				output.append(" = ");
-				output.append(Integer.toString(thisroll[thisroll.length-1][2]));
-				               	
 			};
 		
 		});
@@ -319,7 +322,11 @@ public class MainActivity extends Activity
 		applynewvalues.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					
+				
+				
+		
+					anentity dthishereentity = (anentity) dthisroller.getTag();
+				
 					//views from roller.
 					TextView baseint = dthisroller.findViewById(R.id.baseint);
 					TextView baseagi = dthisroller.findViewById(R.id.baseagi);
@@ -347,11 +354,13 @@ public class MainActivity extends Activity
 					TextView theoutput = findViewById(R.id.Output);
 					theoutput.append("\n ------------");
 					// Check if name is different.
-					if (rollernamestr != newname){
-						theoutput.append("\n" + rollernamestr + " was renamed to " + newname + ".");
+					if (  rollernamestr.equals(newname)){
+						
+						}else{
+							theoutput.append("\n" + rollernamestr + " was renamed to " + newname + ".");
 						}
 
-					// set new values
+					// set new values in roller
 					rollername.setText(newname);
 				
 					baseint.setText(dbaseint.getText().toString());
@@ -362,7 +371,18 @@ public class MainActivity extends Activity
 					boostagi.setText(dboostagi.getText().toString());
 					booststr.setText(dbooststr.getText().toString()); 
 				
-					
+					//setvalues in emtity on tag
+					dthishereentity.setname(newname);
+				
+					dthishereentity.setattirbutes(
+					edittexttoint(dbaseint),
+					edittexttoint(dbaseagi),
+					edittexttoint(dbasestr),
+					edittexttoint(dboostint),
+					edittexttoint(dboostagi),
+					edittexttoint(dbooststr),
+					dthishereentity.getdice()
+					);
 					
 					dialog.dismiss();
      			}
@@ -377,48 +397,15 @@ public class MainActivity extends Activity
 
 public final int[][] dierolls = {{1,1,1}, {1,1,0}, {1,0,1}, {0,1,1}};
 	
-	static int randominrange(int max){
+ static int randominrange(int max){
         Random random = new Random();
         return random.nextInt(max);
-    }
-
-
-
-
-public class truelvalue{
-		int intellect = 0;
-        int agility = 0;
-        int strength = 0;
-
-		int[]  values = {intellect, agility, strength};
-
-		public int[] returnvalues(){
-            int[] thesevalues = {intellect, agility, strength};
-            return thesevalues;
-        }
-        public int[] combine(int[] toadd){
-            int[] thesevalues = {intellect, agility, strength};
-            thesevalues[0] = thesevalues[0] + toadd[0];
-            thesevalues[1] = thesevalues[1] + toadd[1];
-            thesevalues[2] = thesevalues[2] + toadd[2];
-            return thesevalues;
-        }
-
-        public void setvalues(int[] newvalues){
-            intellect = newvalues[0];
-            agility = newvalues[1];
-            strength = newvalues[2];
-        }
-
-        public int[] multiplier(int[] reference){
-            int tempint = this.intellect*reference[0];
-            int tempagi = this.agility*reference[1];
-            int tempstr = this.strength*reference[2];
-
-            int[] mvalues = {tempint, tempagi, tempstr};
-            return mvalues;
-        }
 }
+
+
+
+
+
 
 	
 public class anentity{
@@ -432,7 +419,7 @@ public class anentity{
 
 		int dice = 1;
 	
-		String name = "";
+		String name = "New Roller";
 		
 		public void setattirbutes(int bsi, int bsa, int bss, int boi, int boa, int bos, int dc) {
 			this.baseintellect = bsi;
@@ -447,6 +434,17 @@ public class anentity{
 		public void setname(String newname){
 			this.name = newname;
 		}
+	
+		public String getname(){
+			return this.name;
+		}
+
+		public int getdice(){
+			return this.dice;
+		}
+		public void setdice(int newdc){
+			this.dice = newdc;
+		}
 		
         public int[] returnbasevalues(){
             int[] thesevalues = {this.baseintellect, this.baseagility, this.basestrength};
@@ -457,7 +455,9 @@ public class anentity{
             int[] thesevalues = {this.boostintellect, this.boostagility, this.booststrength};
             return thesevalues;
         }
-
+	
+		public String history = null;
+		
 		public int[][] doroll(){
 		    int[][] finalroll = new int[this.dice +1][3];
 
@@ -485,10 +485,103 @@ public class anentity{
 		
 			finalroll[finalroll.length-1] = totalroll.returnvalues();
 			
+			StringBuilder newhistory = new StringBuilder(); 
+			
+			newhistory.append(this.history); 
+			newhistory.append(rolltostringdisplay(finalroll)); 
+			//this.history = this.history + this.rolltostringdisplay(finalroll);
+			
+			
+			
             return finalroll;
         }
+	
+		public String rolltostringdisplay(int[][] theroll){
+			StringBuilder theoutput = new StringBuilder();
+			
+			int[][] thisroll = theroll;
+			
+			theoutput.append("\n I: ");
+			for (int j = thisroll.length -1; j > 0; j--){
+
+				theoutput.append(Integer.toString(thisroll[j - 1][0]));
+				theoutput.append(""); 
+				if (j>=1){
+					theoutput.append(":");
+				}
+			}
+			theoutput.append(" = ");
+			theoutput.append(Integer.toString(thisroll[thisroll.length-1][0]));
+
+			theoutput.append("\n A: ");
+			for (int j = thisroll.length -1; j > 0; j--){
+
+				theoutput.append(Integer.toString(thisroll[j - 1][1]));
+				theoutput.append(""); 
+				if (j>=1){
+					theoutput.append(":");
+				}
+			}
+			theoutput.append(" = ");
+			theoutput.append(Integer.toString(thisroll[thisroll.length-1][1]));
+
+			theoutput.append("\n S: ");
+			for (int l = thisroll.length -1; l > 0; l--){
+
+				theoutput.append(Integer.toString(thisroll[l - 1][2]));
+				theoutput.append(""); 
+				if (l>=1){
+					theoutput.append(":");
+				}
+			}
+			theoutput.append(" = ");
+			theoutput.append(Integer.toString(thisroll[thisroll.length-1][2]));
+			
+			return theoutput.toString();
+		}
 
 	}
+
+public class creature extends anentity{
+
+	private int intelligencelevel = 0;
+
+	private int intelligencetype = 0;
+
+	//what shape it is.
+	private String form = null; 
+
+	//what its made of
+	private String construction = null;
+
+	public class propellant{
+		private int points = 0;
+
+		private String style = null;
+			
+		private String medium = null; 
+
+		private String method = null; 
+	}
+
+	public class sense{
+		private int points = 0;
+	
+		private String infotype = null;
+
+		//how far away it can sense
+		private int range = 0; 
+	
+		
+	} 
+	
+	// a method to create a random resuot or resuot map fro  a sense. 
+	public void sensetest(sense testee){
+		
+	}
+	
+}
+
 	
 //	public void addroller (){
 //		//create the table layout for the block of information

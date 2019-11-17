@@ -11,24 +11,28 @@
 		android:layout_width="wrap_content"
 		android:text="New Roller"
 		android:id="@+id/name"
-		android:onClick="adjustrollerdlog"/>
+		android:onClick="adjustrollerdlog"
+		android:textStyle="bold"/>
 
 	<LinearLayout
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
 		android:orientation="horizontal"
-		android:onClick="adjustrollerdlog">
+		android:onClick="adjustrollerdlog"
+		android:gravity="center_vertical"
+		android:id="@+id/rollervalues">
 
 		<LinearLayout
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
 			android:orientation="vertical"
-			android:gravity="center">
+			android:gravity="center"
+			android:paddingRight="10dp">
 
 			<TextView
 				android:layout_height="wrap_content"
 				android:layout_width="wrap_content"
-				android:text="Base"
+				android:text="Bs"
 				android:id="@+id/basevaluestitle"/>
 
 			<TextView
@@ -66,7 +70,7 @@
 			<TextView
 				android:layout_height="wrap_content"
 				android:layout_width="wrap_content"
-				android:text="Boost"
+				android:text="Bo"
 				android:id="@+id/boostvaluestitle"/>
 
 			<TextView
@@ -95,12 +99,50 @@
 
 		</LinearLayout>
 
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:orientation="vertical"
+			android:gravity="center_horizontal">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="?android:attr/textAppearanceSmall"
+				android:text="D"/>
+
+			<EditText
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content"
+				android:ems="1"
+				android:text="1"
+				android:id="@+id/dice"/>
+
+		</LinearLayout>
+
 	</LinearLayout>
+
+	<ScrollView
+		android:layout_height="90dp"
+		android:layout_width="wrap_content"
+		android:id="@+id/histdisplay"
+		android:visibility="gone"
+		android:layout_gravity="bottom">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:text="The History:"
+			android:visibility="visible"
+			android:gravity="bottom"
+			android:id="@+id/histdisplaytext"/>
+
+	</ScrollView>
 
 	<LinearLayout
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
-		android:orientation="horizontal"
+		android:orientation="vertical"
 		android:gravity="center">
 
 		<Button
@@ -109,20 +151,14 @@
 			android:text="Roll"
 			android:id="@+id/rollbutton"/>
 
-		<EditText
+		<Button
+			style="?android:attr/buttonStyleSmall"
 			android:layout_height="wrap_content"
 			android:layout_width="wrap_content"
-			android:ems="1"
-			android:text="1"
-			android:id="@+id/dice"/>
+			android:text="History"
+			android:id="@+id/histbutton"/>
 
 	</LinearLayout>
-
-	<Button
-		android:layout_height="wrap_content"
-		android:layout_width="wrap_content"
-		android:text="settings"
-		android:id="@+id/attributes"/>
 
 </LinearLayout>
 
