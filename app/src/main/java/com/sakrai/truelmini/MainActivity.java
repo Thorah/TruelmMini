@@ -1,5 +1,7 @@
 package com.sakrai.truelmini;
 
+//sync test
+
 import android.app.*;
 import android.os.*;
 import android.widget.*;
