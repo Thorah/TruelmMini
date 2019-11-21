@@ -1,6 +1,5 @@
 package com.sakrai.truelmini;
 import java.util.*;
-import java.util.HashMap;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -109,6 +108,14 @@ public class sense
 		private static final String KEY_ID = "id";
 
 		private static final String KEY_NAME = "name";
+
+		private static final String KEY_EFFMOD = "efficacymodifier";
+		private static final String KEY_ANGSCO = "anglescope";
+		private static final String KEY_NAME = "name";
+		private static final String KEY_NAME = "name";
+
+
+
 	
 		ArrayList<column> columns = new ArrayList<column>();
 		
