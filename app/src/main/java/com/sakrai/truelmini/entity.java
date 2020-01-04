@@ -5,13 +5,19 @@ public class entity
 {
 
 	//list of attributes such as mobility and the deacriptors for each
-	ArrayList<sense> EntitySenses = new ArrayList<>();
-	//truel value attrubutes.
-	
-	
-	//lisy of senses.
 
-	//()generate sense
+	
+	//truel value attrubutes.
+	int intelligence;
+
+	int agility;
+
+	int strength;
+
+	//list of senses.
+	ArrayList<sense> EntitySenses = new ArrayList<>();
+
+	//()generate all
 	public void generate(){
 		// generate senses
 		int numsenses = myrandom.randominrange(4) + 1;
@@ -20,5 +26,7 @@ public class entity
 		}
 	}
 	//() variois testa sich as movement twat and generic test
-	
+	public String reveal(){
+
+	}
 }

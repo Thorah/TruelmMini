@@ -41,6 +41,8 @@ public class information
 		this.encodingstyle = encodingstyles[randominrange(encodingstyles.length)];
 	}
 	
+	
+	
 	void setvalues(
 		String imediumform,
 		String imediumtype,

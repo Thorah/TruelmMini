@@ -156,6 +156,31 @@ public class sense
 		}
 	}
 
+	public string revealashashmap(){
+		StringBuilder revelation = new StringBuilder();
+
+		revelation.append("")
+
+		revelation.append("\n" + "efficacymodifier: ", Integer.toString(efficacymodifier));
+
+		revelation.append("\n" + "anglescope: ",Integer.toString(anglescope));
+
+		revelation.append("\n" + "movability: ",Integer.toString(movability));
+
+		revelation.append("\n" + "rangefallout: ",Integer.toString(rangefallout));
+
+		revelation.append("\n" + "focusmodifier:",Integer.toString(focusmodifier));
+
+		revelation.append("\n" + "discernablerange:", Integer.toString(discernablerangemin), "-", Integer.toString(discernablerangemax));
+
+		for (i=0; i++; i<discernableinfos.length){
+			discernableinfos[i].
+		}
+		revelation.append("\n" + )
+
+		return revelation.toString;
+		}
+	}
 //	public class column {
 //		String columnname;
 //		String datatype;
