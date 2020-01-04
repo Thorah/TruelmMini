@@ -98,6 +98,7 @@ public class sense
 	}
 	
 	//database helper
+	/*
 	public class senseshelper extends SQLiteOpenHelper
 	{
 		private static final String DB_NAME = "rollerdb";
@@ -156,6 +157,7 @@ public class sense
 		}
 	}
 
+*/
 	public string revealashashmap(){
 		StringBuilder revelation = new StringBuilder();
 
