@@ -27,6 +27,6 @@ public class entity
 	}
 	//() variois testa sich as movement twat and generic test
 	public String reveal(){
-
+		return "placehokder";
 	}
 }

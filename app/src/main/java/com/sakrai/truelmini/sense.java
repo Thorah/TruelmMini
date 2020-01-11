@@ -31,6 +31,17 @@ public class sense
 	// info obj arraylist
 	ArrayList<information> discernableinfos;
 
+	// new snese generation
+	public sense(){
+		
+	}
+
+	// recinstituting a sense
+	public sense(HashMap<String, Integer> info){
+		
+	}
+
+	
 	public void generate(){
 		if(this.generated = false){
 			this.generated = true;
@@ -71,9 +82,10 @@ public class sense
 	
 			
 		}
-	
-		
-	
+	}
+
+
+	/* commenting out this to do it at a later date.
 		
 		
 	}
@@ -157,25 +169,30 @@ public class sense
 		}
 	}
 
-*/
-	public string revealashashmap(){
+
+
+
+
+	public String revealashashmap(){
 		StringBuilder revelation = new StringBuilder();
 
-		revelation.append("")
+		revelation.append("");
+	
+		revelation.append("" + "");
 
-		revelation.append("\n" + "efficacymodifier: ", Integer.toString(efficacymodifier));
+		revelation.append("\n" + "efficacymodifier: " + Integer.toString(efficacymodifier));
 
-		revelation.append("\n" + "anglescope: ",Integer.toString(anglescope));
+		revelation.append("\n" + "anglescope: "+ Integer.toString(anglescope));
 
-		revelation.append("\n" + "movability: ",Integer.toString(movability));
+		revelation.append("\n" + "movability: "+Integer.toString(movability));
 
-		revelation.append("\n" + "rangefallout: ",Integer.toString(rangefallout));
+		revelation.append("\n" + "rangefallout: "+Integer.toString(rangefallout));
 
-		revelation.append("\n" + "focusmodifier:",Integer.toString(focusmodifier));
+		revelation.append("\n" + "focusmodifier:"+Integer.toString(focusmodifier));
 
-		revelation.append("\n" + "discernablerange:", Integer.toString(discernablerangemin), "-", Integer.toString(discernablerangemax));
+		revelation.append("\n" + "discernablerange:"+ Integer.toString(discernablerangemin)+ "-"+ Integer.toString(discernablerangemax));
 
-		for (i=0; i++; i<discernableinfos.length){
+		for (int i=0;i<discernableinfos.length; i++){
 			discernableinfos[i].
 		}
 		revelation.append("\n" + )
@@ -214,7 +231,7 @@ public class sense
 	//sense test all: output arraylist of hashmaps where the key
 	//is the distance category and the value is how well the entity
 	//discerns at that range as a random result for all senses 
-
+*/
 	
 	//inspect: inspect a given target and reeturn the info that yo
 	//can perciev at a given distance

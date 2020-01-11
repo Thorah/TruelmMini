@@ -1,6 +1,6 @@
 package com.sakrai.truelmini;
 
-import java.util.*
+import java.util.*;
 
 public class location
 {
@@ -14,28 +14,28 @@ public class location
 
 	// generate random
 	public location(){
-		generated = true
+		generated = true;
 
-		terrain = new terrain();
+		terrain thisterrain = new terrain();
 		
-		size = randomfromandto(10, 15)
+		size = myrandom.randomfromandto(10, 15);
 	};
 
 	// generate random with size barriers
 	public location(int from, int to){
-		generated = true
+		generated = true;
 
-		terrain = new terrain();
+		thisterrain = new terrain();
 		
-		size = randomfromandto(from, to)
+		size = myrandom.randomfromandto(from, to);
 
 	};
 
 	// reconstitute
-	public location(HashMap<String, int>){
+	public location(HashMap<String, Integer> inputhashmap){
 		
 		HashMap hashmapterrain;
-		thisterrain = new terrain(hashmapterrain);
+		// thisterrain = new terrain(inputhashmap);
 	};
 
 
@@ -44,8 +44,10 @@ public class location
 	public String reveal(){
 		StringBuilder outputstrb = new StringBuilder();
 
-		outputstrb.append("Size: " + Integer.toString(this.size))
+		outputstrb.append("<br> \n Size: " + Integer.toString(this.size));
 
-		outputstrb.append("\n" + thisterrain.reveal)
+		outputstrb.append("\n" + thisterrain.reveal());
+		
+		return outputstrb.toString();
 	}
 }

@@ -12,6 +12,8 @@ import android.view.View;
 import android.text.*;
 import org.w3c.dom.*;
 import java.util.Random;
+import android.content.*;
+
 //import android.widget.EditText; 
 
 
@@ -24,7 +26,12 @@ public class MainActivity extends Activity
         setContentView(R.layout.main);
 				
 	}
-		
+
+	public void startsimplerandomiser(View v){
+		Intent intent = new Intent(MainActivity.this, simplerandomiseractivity.class);
+		startActivity(intent);
+	}
+	
 };
 
 

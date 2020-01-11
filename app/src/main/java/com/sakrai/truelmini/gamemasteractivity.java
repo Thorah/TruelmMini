@@ -1,5 +1,4 @@
 package com.sakrai.truelmini;
-//sync test
 
 	import android.app.*;
 	import android.os.*;
@@ -14,7 +13,7 @@ package com.sakrai.truelmini;
 //import android.widget.EditText; 
 
 
-	public class simplerandomiseractivity extends Activity 
+	public class gamemasteractivity extends Activity 
 	{
 		@Override
 		protected void onCreate(Bundle savedInstanceState)
@@ -59,17 +58,17 @@ package com.sakrai.truelmini;
 
 		public void genrandomlocation(View v){
 			location newlocation = new location(10, 15);
-		
+
 			TextView output = findViewById(R.id.Output);
-		
+
 			//output.append(newlocation.reveal());
 			output.append(Html.fromHtml(newlocation.reveal()));
 			// String text = "<font color=#cc0029>First Color</font> <font color=#ffcc00>Second Color</font>";
 			//output.append(Html.fromHtml(text));
-			
+
 		}
-	
-		
+
+
 		public int edittexttoint(EditText inputview){
 
 			EditText theview = inputview; 

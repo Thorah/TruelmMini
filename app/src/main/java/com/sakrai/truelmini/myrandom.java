@@ -10,13 +10,20 @@ public class myrandom
         return random.nextInt(max);
 	}
 	
-	public int randomfromandto(int from, int to){
-		int shiftvalue = 0 + from;
-		int maxgenerate = to - from;
-		int result = randominrange(maxgenerate);
-		result = result + shiftvalue;
-		return result;
+	public static int randomfromandto(int from, int to){
+		if(from == to){
+			return from;
+		}else{
+			int shiftvalue = 0 + from;
+			int maxgenerate = to - from;
+			int result = randominrange(maxgenerate+1);
+			result = result + shiftvalue;
+			return result;
+		}
+	
 	}
+	
+
 
 	public int randomfromandtogoverned(int from, int to, int governor){
 		int result = 0;
